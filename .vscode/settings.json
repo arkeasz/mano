@@ -5,8 +5,18 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        "**/*.mod": true,
+        // "**/*.mod": true,
         "**/*.exe": true,
-        // "**/calc": true,
+        "**/calc": true,
+        "**/*.fls": true,
+        "**/*.aux": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.jou": true,
+        "**/*.log": true,
+        "**/*.gz": true,
+        "**/*.out": true
+    },
+    "emmet.includeLanguages": {
+        "javascript": "html"
     }
 }

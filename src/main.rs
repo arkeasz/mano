@@ -1,7 +1,9 @@
 #[macro_use]
 extern crate rocket;
 use rocket::form::Form;
+use rocket::fs::FileServer;
 use rocket_dyn_templates::Template;
+use markdown;
 use std::collections::HashMap;
 use std::sync::Mutex;
 use std::fs;
@@ -60,7 +62,8 @@ fn docs() -> Template {
 #[get("/<post>")]
 fn posts(post: String) -> Template {
     let file_path = format!("./docs/{}.md", post);
-    let contents = fs::read_to_string(file_path).unwrap();
+    let str_content = fs::read_to_string(file_path).unwrap();
+    let contents = markdown::to_html(&str_content);
     let mut ctx = HashMap::new();
     ctx.insert("contents", contents);
     Template::render("post", &ctx)
@@ -69,11 +72,12 @@ fn posts(post: String) -> Template {
 #[launch]
 fn rocket() -> _ {
     let calclib = unsafe {
-        Library::new("./math/libmath.dll").expect("DLL load failed")
+        Library::new("./math/libmath.so").expect("DLL load failed")
     };
 
     rocket::build()
         .manage(MetaLib { calclib: Mutex::new(calclib) })
+        .mount("/public", FileServer::from("static"))
         .mount("/", routes![index])
         .mount("/calc", routes![calculator, calculate])
         .mount("/docs", routes![docs, posts])

@@ -1,0 +1,31 @@
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 5rem 0 9rem;
+    text-align: center;
+}
+
+.intro figcaption img {
+    height: 2rem;
+}
+
+.intro h1 {
+    font-family: 'Jaro';
+    font-size: clamp(2rem, 10vw, 7rem);
+}
+
+.eps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    border-top: .1rem solid #111;
+    padding: 1rem 0; 
+    border-bottom: .1rem solid #111;
+
+    svg {
+        fill: #111
+    }
+}

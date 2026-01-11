@@ -99,6 +99,7 @@ contains
                         ! token: FUNC(sin), IDENT(x)
                         start = i
                         j = i
+                        
                         do while (j <= size(arr) .and. .not. is_numeric(arr(j)) .and. &
                                   arr(j) /= '+' .and. arr(j) /= '-' .and. arr(j) /= '*' .and. &
                                   arr(j) /= '/' .and. arr(j) /= '^' .and. arr(j) /= '(' .and. &

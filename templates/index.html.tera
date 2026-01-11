@@ -1,11 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDICE</title>
-</head>
-<body>
-    INDICE
-</body>
-</html>
+{% extends "base" %}
+{% block title %}Home{% endblock title %}
+{% block head %}
+    {{ super() }}
+    <script src="/public/scripts/index.js" type="module" defer></script>
+    <link rel="stylesheet" href="/public/styles/home.css" />
+{% endblock head  %}
+{% block content %}
+    <header>
+        <nav>
+            <a href="#docs">DOCS</a>
+            <a href="#calculator">CALCULATOR</a>
+            <a href="#repository">REPOSITORY</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <figcaption>
+                <img src="/public/favicon.ico" alt="">
+            </figcaption>
+            <h1>MANO</h1>
+            <h5>A platform to explore and run numerical methods</h5>
+        </section>
+        <section class="eps">
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18L13.4593 13.5086H18.1819L14.3613 10.7328L15.8206 6.24139L12 9.01722L8.1794 6.24139L9.63874 10.7328L5.81813 13.5086H10.5407L12 18Z" />
+            </svg>
+            <h2>Web</h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18L13.4593 13.5086H18.1819L14.3613 10.7328L15.8206 6.24139L12 9.01722L8.1794 6.24139L9.63874 10.7328L5.81813 13.5086H10.5407L12 18Z" />
+            </svg>
+            <h2>Rust</h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18L13.4593 13.5086H18.1819L14.3613 10.7328L15.8206 6.24139L12 9.01722L8.1794 6.24139L9.63874 10.7328L5.81813 13.5086H10.5407L12 18Z" />
+            </svg>
+            <h2>Fortran</h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18L13.4593 13.5086H18.1819L14.3613 10.7328L15.8206 6.24139L12 9.01722L8.1794 6.24139L9.63874 10.7328L5.81813 13.5086H10.5407L12 18Z" />
+            </svg>
+        </section>
+        <header-mano></header-mano>
+    </main>
+{% endblock content %}

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1762902678.11121 "c:/Users/anton/projects/meta/art/main.tex" "main.pdf" "main" 1762902680.91333 0
+["pdflatex"] 1764525283.33775 "c:/Users/anton/projects/meta/art/main.tex" "main.pdf" "main" 1764525338.49259 0
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1762900099 507291 1847502ce6881b30643547827b3a6249 ""
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1762901249 28976 6fa0f7000c1e12f8e02c13c80c751988 ""
   "C:/Users/anton/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1761697744 31952 e734f207c3190b580654909092ad53c2 ""
@@ -91,11 +91,11 @@
   "C:/Users/anton/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "C:/Users/anton/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "abstract.tex" 1762901838 10 bd7b9df22726ef3bc5bd602f3fd773fe ""
-  "c:/Users/anton/projects/meta/art/main.tex" 1762902284 455 45123da34d1f0dc88bb670568e1873b2 ""
+  "c:/Users/anton/projects/meta/art/main.tex" 1764525040 544 cad952a7f50e6f061dc6d7fad58a35ee ""
   "cover.tex" 1762902014 414 f95595f7f479a35ed4ce5953f5442811 ""
-  "main.aux" 1762902680 532 404bf5eea3b45e4c5d54640110005334 "pdflatex"
-  "main.out" 1762902680 279 2bbeb2fe6e31523d1ef952280ced61b8 "pdflatex"
-  "main.tex" 1762902284 455 45123da34d1f0dc88bb670568e1873b2 ""
+  "main.aux" 1764525326 532 404bf5eea3b45e4c5d54640110005334 "pdflatex"
+  "main.out" 1764525326 279 2bbeb2fe6e31523d1ef952280ced61b8 "pdflatex"
+  "main.tex" 1764525040 544 cad952a7f50e6f061dc6d7fad58a35ee ""
   "paper.tex" 1762902674 371 650d0e9280e6c38a8f1fa5848d10ee98 ""
   "preamble.tex" 1762901915 241 3ed98a8b3535c76f40b60476c0dccd1b ""
   "summary.tex" 1762901833 12 0b5bfc6119809058ca23e3a119257888 ""
