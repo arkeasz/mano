@@ -11,7 +11,6 @@ class HeaderMano extends HTMLElement {
         styles = /* css */ `
             :host {
                 position: sticky;
-                font-family: 'Jaro';
                 width: calc(100%-4rem);
                 display: flex;
                 padding: .5rem 2rem;

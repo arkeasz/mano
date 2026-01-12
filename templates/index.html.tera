@@ -39,5 +39,37 @@
             </svg>
         </section>
         <header-mano></header-mano>
+        <section class="info">
+            <article class="why">
+                <h3>WHY?</h3>
+                <p>Mano was created to learn, experiment with, and apply numerical methods in a practical way. It allows students and professionals to test algorithms, compare results, and better understand their behavior without complications.</p>
+            </article>
+            <article class="special">
+                <h3>WHAT MAKES IT SPECIAL?</h3>
+                <ul>
+                    <li>Performance: Rust and Fortran work together for fast and reliable calculations.</li>
+                    <li>Interactive: Explore the numerical methods and experiment with their outputs.</li>
+                    <li>Educational:  Ideal for learning how numerical algorithms work in practice.</li>
+                </ul>
+            </article>
+            <article class="works">
+                <h3>HOW IT WORKS</h3>
+                <li class="works__one">
+                    <b>SELECT A NUMERICAL METHOD</b>
+                    <p>From integration and differentiation to solving differential equations.</p>
+                </li>
+                <li class="works__two">
+                    <b>RUN THE CALCULATIONS</b>
+                    <p>The backend combines Rust’s speed with Fortran’s numerical power to provide accurate results</p>
+                </li>
+                <li class="works__three">
+                    <b>VISUALIZE RESULT</b>
+                    <p>Graphs and tables help interpret the data clearly</p>
+                </li>
+            </article>
+            <figcaption>
+                <img src="" alt="">
+            </figcaption>
+        </section>
     </main>
 {% endblock content %}
