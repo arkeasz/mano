@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
-</head>
-<body>
-    <header>
-        <h1>MANO</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/docs">Docs</a>
-            <a href="/paypal">Donate</a>
-            <a href="https://github.com/arkeasz/meta">Github</a>
-        </nav>
-    </header>
-    {{ contents }}
-</body>
-</html>
+{% extends "base" %}
+{% block title %}Documentation{% endblock title %}
+{% block head %}
+    {{ super() }}
+    <script src="/public/scripts/index.js" type="module" defer></script>
+    <link rel="stylesheet" href="/public/styles/docs.css" />
+{% endblock head  %}
+{% block content %}
+    <header-mano></header-mano>
+    <main>
+        
+        <directory-mano titles='{{ directory | json_encode | safe }}'></directory-mano>
+        <section>
+            
+        </section>
+    </main>
+{% endblock content  %}

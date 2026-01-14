@@ -1,0 +1,10 @@
+main {
+    display: flex;
+    gap: 1rem;
+
+}
+
+section {
+    padding: 1rem 0;
+    width: 80%
+}

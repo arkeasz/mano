@@ -16,6 +16,7 @@ class HeaderMano extends HTMLElement {
                 padding: .5rem 2rem;
                 justify-content: space-between;
                 align-items: center;
+                font-family: 'Jaro';
                 background-color: #fff;
                 height: 4rem;
                 top: 0;
@@ -48,9 +49,9 @@ class HeaderMano extends HTMLElement {
 
             <img src="/public/favicon.ico" alt="">
             <nav>
-                <a href="#docs">DOCS</a>
-                <a href="#calculator">CALCULATOR</a>
-                <a href="#repository">REPOSITORY</a>
+                <a href="/docs">DOCS</a>
+                <a href="/calc">CALCULATOR</a>
+                <a href="http://github.com/arkeasz/mano" >REPOSITORY</a>
             </nav>
         `
 
