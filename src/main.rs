@@ -1,5 +1,5 @@
 pub mod documentation;
-pub mod calculator;
+pub mod methods;
 #[macro_use]
 extern crate rocket;
 use rocket::fs::FileServer;
@@ -8,7 +8,7 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 use libloading::Library;
 
-use crate::calculator::{calc, library::MetaLib};
+use crate::methods::{calc, library::MetaLib};
 
 
 #[get("/")]

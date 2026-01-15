@@ -5,7 +5,7 @@ use std::collections::HashMap;
 use libloading::{Library, Symbol};
 use std::ffi::{CString, OsString};
 
-use crate::calculator::library::MetaLib;
+use crate::methods::library::MetaLib;
 
 #[derive(FromForm, Debug)]
 pub struct CalculatorInput {
