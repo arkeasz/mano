@@ -6,9 +6,10 @@ use std::io::{BufRead, BufReader};
 use std::path::Path;
 use std::fs::{self, File};
 use std::ffi::OsString;
+use regex::Regex;
 
 fn directory() -> Result<Vec<Vec<String>>, Status> {
-let path = Path::new("./docs");
+    let path = Path::new("./docs");
     let mut titles: Vec<Vec<String>> = vec![
         vec![], // title
         vec![]  // filename
@@ -17,31 +18,34 @@ let path = Path::new("./docs");
         return Err(Status::NotFound);
     }
 
-    for entry in fs::read_dir(path).map_err(|_| Status::InternalServerError)? {
-        match entry {
-            Ok(entry) => {
-                let file_name: OsString = entry.file_name();
-                println!("This is the file name: {:#?}", file_name);
-                titles[1].push(file_name.to_string_lossy().to_string());
-                let str_path = format!("./docs/{}", file_name.as_os_str().to_str().unwrap());
-                println!("This is the path: {:?}", str_path);
-                let file_path = Path::new(&str_path);
-                let open = File::open(file_path);
-                match open {
-                    Ok(open) => {
-                        let reader = BufReader::new(open);
-                        if let Some(first_line) = reader.lines().next() {
-                            match first_line {
-                                Ok(line) => titles[0].push(line),
-                                Err(e) => println!("Error {}", e),
-                            }
-                        }    
-                    },
-                    Err(e) => println!("Cant open the file. {}", e)
-                }
+    let mut entries: Vec<fs::DirEntry> = fs::read_dir(path)
+        .map_err(|_| Status::InternalServerError)?
+        .filter_map(|en| en.ok()) 
+        .collect();
+    entries.sort_by_key(|e| e.path());
+
+    for entry in entries {
+        let file_name: OsString = entry.file_name();
+        let re = Regex::new(r"^\d+_(.+)$").unwrap();
+        if let Some(caps) = re.captures(&file_name.to_string_lossy().to_string()) {
+            titles[1].push(caps[1].to_string());
+        }
+        let str_path = format!("./docs/{}", file_name.as_os_str().to_str().unwrap());
+        println!("This is the path: {:?}", str_path);
+        let file_path = Path::new(&str_path);
+        let open = File::open(file_path);
+        match open {
+            Ok(open) => {
+                let reader = BufReader::new(open);
+                if let Some(first_line) = reader.lines().next() {
+                    match first_line {
+                        Ok(line) => titles[0].push(line),
+                        Err(e) => println!("Error {}", e),
+                    }
+                }    
             },
-            Err(e) => println!("Error: {}", e)
-        }        
+            Err(e) => println!("Cant open the file. {}", e)
+        }   
     }
 
     Ok(titles)
@@ -62,11 +66,26 @@ pub fn index() -> Result<Template, Status> {
     Ok(Template::render("docs", &ctx))
 }
 
+
 #[get("/<post>")]
-pub fn posts(post: String) -> Template {
-    let file_path = format!("./docs/{}.md", post);
-    let str_content = fs::read_to_string(file_path).unwrap();
-    let contents = markdown::to_html(&str_content);
+pub fn posts(post: String) -> Result<Template, Status> {
+    let path = Path::new("./docs");
+    if !path.exists() || !path.is_dir() {
+        return Err(Status::NotFound);
+    }
+    let mut contents: String = String::from("empty");
+
+    for entry in fs::read_dir(path).map_err(|_| Status::InternalServerError)? {
+        match entry {
+            Ok(entry) => {
+                if entry.file_name().to_string_lossy().to_string().contains(&post) {
+                    let content = fs::read_to_string(entry.path()).map_err(|_| Status::NotFound);                    
+                    contents = markdown::to_html(&content?);
+                }
+            },
+            Err(e) => print!("Error")
+        }
+    }
 
     let dir: Vec<Vec<String>>;
     match directory() {
@@ -77,8 +96,8 @@ pub fn posts(post: String) -> Template {
         },
     };
 
-    Template::render("post", context! {
+    Ok(Template::render("post", context! {
         contents: contents,
         directory: dir
-    })
+    }))
 }
