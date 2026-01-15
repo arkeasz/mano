@@ -1,0 +1,13 @@
+p:first-child {
+    visibility: hidden;
+    display: none;
+}
+
+main {
+    display: flex;
+}
+
+section {
+    width: 80%;
+    
+}

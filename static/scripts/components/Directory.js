@@ -8,6 +8,7 @@ class DirectoryMano extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this._titles = JSON.parse(newValue);
+        console.log(this._titles)
         this._updateRendering()
     }
 
@@ -31,10 +32,22 @@ class DirectoryMano extends HTMLElement {
                 color: #eee
             }
 
-            p {
-                margin: 0;
-                padding: 0;
+            nav {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
 
+                a {
+                    width: calc(100% - 2rem);
+                    padding: 1rem;
+                    color: #eee;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: #5e6770;
+                    }
+                }
             }
         `
         html = /* html */ `

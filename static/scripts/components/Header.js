@@ -20,6 +20,7 @@ class HeaderMano extends HTMLElement {
                 background-color: #fff;
                 height: 4rem;
                 top: 0;
+                z-index: 3;
             }
 
             img {
